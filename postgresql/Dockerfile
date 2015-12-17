@@ -1,6 +1,5 @@
 #
-# Script que permite lanzar una base de datos PostgreSQL y cargar los datos de
-# prueba apartir del/los scripts de carga de datos.
+# PostgreSQL Dockerfile.
 #
 FROM ubuntu
 MAINTAINER adrian.novegil@gmail.com
@@ -24,7 +23,7 @@ RUN apt-get update && apt-get install -y python-software-properties software-pro
 # Run the rest of the commands as the ``postgres`` user created by the ``postgres-9.3`` package when it was ``apt-get installed``
 USER postgres
 
-# Asociamos el/los ficheros desde los que vamos a cargar el esquema y los datos de  prueba.
+# We associate the files from which we will load the SQL schema and test data..
 ADD schema.sql /schema.sql
 ADD test-data.sql /test-data.sql
 
