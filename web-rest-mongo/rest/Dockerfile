@@ -30,6 +30,6 @@ WORKDIR /local/git/docker-maven-tomcat
 RUN chmod +x /local/git/docker-maven-tomcat/run.sh
 
 # Run startup script
-# CMD ["run.sh"]
+#CMD ["run.sh"]
 
 EXPOSE 8080
