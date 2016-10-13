@@ -1,7 +1,6 @@
 #
 # Jenkins Master Dockerfile
 #
-
 FROM jenkinsci/jenkins:2.14
 
 # Maintainer details
@@ -19,12 +18,12 @@ RUN /usr/local/bin/plugins.sh /tmp/files/plugins.txt
 
 # Create a new user in the Jenkins
 RUN touch /usr/share/jenkins/ref/plugins/credentials.jpi.pinned
-COPY resources/*.groovy /usr/share/jenkins/ref/init.groovy.d
+COPY assets/*.groovy /usr/share/jenkins/ref/init.groovy.d
 
 # Configure environment variables
 ARG JAVA_OPTS
 ENV JAVA_OPTS ${JAVA_OPTS:--Xmx8192m -Djenkins.install.runSetupWizard=false}
-ENV JENKINS_OPTS="--handlerCountMax=300 --logfile=/var/log/jenkins/jenkins.log  --webroot=/var/cache/jenkins/war"
+ENV JENKINS_OPTS="--handlerCountMax=300 --logfile=/var/log/jenkins/jenkins.log --webroot=/var/cache/jenkins/war"
 
 # Change permissions
 RUN chown -R jenkins:jenkins /usr/share/jenkins/
@@ -40,4 +39,4 @@ USER jenkins
 EXPOSE 8080 50000
 
 # If you're reading this and have any feedback on how this image could be
-#   improved, please open an issue or a pull request so we can discuss it!
+#  improved, please open an issue or a pull request so we can discuss it!

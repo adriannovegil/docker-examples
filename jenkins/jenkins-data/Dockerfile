@@ -1,7 +1,6 @@
 #
 # Jenkins Data Dockerfile
 #
-
 FROM centos:7
 
 # Maintainer details
@@ -22,4 +21,4 @@ USER jenkins
 CMD ["echo", "Data container for Jenkins"]
 
 # If you're reading this and have any feedback on how this image could be
-#   improved, please open an issue or a pull request so we can discuss it!
+#  improved, please open an issue or a pull request so we can discuss it!
